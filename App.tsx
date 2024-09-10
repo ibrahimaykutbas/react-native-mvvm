@@ -8,6 +8,8 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import PokemonScreen from './src/presentation/screens/PokemonScreen'
+import UsersScreen from './src/presentation/screens/UsersScreen'
+import UserDetailScreen from './src/presentation/screens/UserDetailScreen'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -25,6 +27,8 @@ const theme = Object.freeze({
 
 export type AppStackParams = {
   Pokemon: undefined
+  Users: undefined
+  UserDetail: { id: number }
 }
 
 export type RootRouteProp<RouteName extends keyof AppStackParams> = RouteProp<
@@ -41,6 +45,8 @@ export default function RootStack() {
       <NavigationContainer theme={theme}>
         <Stack.Navigator>
           <Stack.Screen name="Pokemon" component={PokemonScreen} />
+          <Stack.Screen name="Users" component={UsersScreen} />
+          <Stack.Screen name="UserDetail" component={UserDetailScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>
