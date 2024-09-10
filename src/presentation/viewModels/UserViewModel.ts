@@ -15,6 +15,7 @@ export default function useUserViewModel(userId: number) {
 
         const userRepository = new UserRepository()
         const getUserUseCase = new GetUserUseCase(userRepository)
+
         const userResponse = await getUserUseCase.executeById(userId)
 
         setUser(userResponse)
